@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { PulseLoader } from 'react-spinners';
 import { useDispatch, useSelector } from 'react-redux';
+import { PulseLoader } from 'react-spinners';
 import { listProducts } from '../actions/productActions';
 import Product from './Product';
 import './products-main.scss';
@@ -24,8 +24,8 @@ const ProductsPage = () => {
         <p>Error...</p>
       ) : (
         <div className="products-container">
-          {products.map((product) => (
-            <div className="product-card">
+          {products.map((product, index) => (
+            <div className="product-card" key={index}>
               <Product product={product} />
             </div>
           ))}

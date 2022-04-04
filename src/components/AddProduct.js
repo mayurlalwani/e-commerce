@@ -38,7 +38,9 @@ const AddProduct = ({ openModal, setAddProduct }) => {
         title,
         description,
         price: amount,
-        image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+        image:
+          selectedFile ||
+          'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
       })
     );
     setAddProduct(false);

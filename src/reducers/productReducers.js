@@ -2,6 +2,9 @@ import {
   ADD_PRODUCT_FAIL,
   ADD_PRODUCT_REQUEST,
   ADD_PRODUCT_SUCCESS,
+  DELETE_PRODUCT_FAIL,
+  DELETE_PRODUCT_REQUEST,
+  DELETE_PRODUCT_SUCCESS,
   PRODUCT_LIST_FAIL,
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
@@ -30,7 +33,6 @@ export const productListReducer = (state = { products: [] }, action) => {
 };
 
 export const addNewProduct = (state = { products: [] }, action) => {
-  console.log({ payload: action.payload });
   switch (action.type) {
     case ADD_PRODUCT_REQUEST:
       return {
@@ -44,6 +46,31 @@ export const addNewProduct = (state = { products: [] }, action) => {
         products: [...state.products, action.payload],
       };
     case ADD_PRODUCT_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const deleteProduct = (state = { products: [] }, action) => {
+  switch (action.type) {
+    case DELETE_PRODUCT_REQUEST:
+      return {
+        loading: true,
+        ...state,
+      };
+    case DELETE_PRODUCT_SUCCESS:
+      return {
+        loading: false,
+        ...state,
+        products: state.products.map(
+          (product) => product.id !== action.payload
+        ),
+      };
+    case DELETE_PRODUCT_FAIL:
       return {
         loading: false,
         error: action.payload,
