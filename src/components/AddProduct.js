@@ -32,7 +32,14 @@ const AddProduct = ({ openModal, setAddProduct }) => {
 
   const handleAddProduct = () => {
     dispatch(
-      addNewProduct({ title, description, amount, image: selectedFile })
+      addNewProduct({
+        category: "men's clothing",
+        rating: { rate: 0, count: 0 },
+        title,
+        description,
+        price: amount,
+        image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+      })
     );
     setAddProduct(false);
   };

@@ -40,7 +40,8 @@ export const addNewProduct = (state = { products: [] }, action) => {
     case ADD_PRODUCT_SUCCESS:
       return {
         loading: false,
-        products: state.products.push(action.payload),
+        ...state,
+        products: [...state.products, action.payload],
       };
     case ADD_PRODUCT_FAIL:
       return {
