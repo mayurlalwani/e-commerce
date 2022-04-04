@@ -53,7 +53,7 @@ const CartPage = () => {
       <div className="price-details">
         <h2>Price Details</h2>
 
-        <li>Total Amount:{totalAmount} </li>
+        <li>Total Amount:{parseFloat(totalAmount).toFixed(2)} </li>
         <Button
           variant="contained"
           onClick={handleCheckout}

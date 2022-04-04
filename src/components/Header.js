@@ -5,9 +5,14 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import AddProduct from './AddProduct';
+import { Badge } from '@mui/material';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const [addProduct, setAddProduct] = useState(false);
+
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
 
   return (
     <header>
@@ -17,7 +22,10 @@ const Header = () => {
         </Link>
         <Link to="/cart">
           <div className="menu-option cart">
-            <ShoppingCartIcon />
+            <Badge badgeContent={cartItems.length} color="primary">
+              <ShoppingCartIcon />
+            </Badge>
+
             <span>Cart</span>
           </div>
         </Link>
