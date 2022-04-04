@@ -1,0 +1,36 @@
+li {
+  list-style-type: none;
+}
+.cart-main-container {
+  display: flex;
+  justify-content: space-between;
+  .cart-container {
+    width: 700px;
+    height: 390px;
+    background-color: #ffffff;
+    border: solid 1px;
+    display: flex;
+    //   align-items: center;
+
+    & .left-section {
+      width: 40%;
+      align-self: center;
+    }
+    & .right-section {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      padding: 10%;
+      flex-direction: column;
+    }
+  }
+
+  .price-details {
+    width: 520px;
+    height: 500px;
+    border: solid 1px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+}
